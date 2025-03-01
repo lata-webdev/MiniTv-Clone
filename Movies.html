@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon miniTV - Watch-Free,Web Series,Movies,Short Films etc.</title>
+    <link rel="icon" type="image/x-icon" href="Favicon.png">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        #head {
+            background-color: #242926;
+            height: 70px;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        #Amalogo {
+            display: flex;
+            align-items: center;
+        }
+
+        #Amalogo img {
+            margin-left: 30px;
+            height: 70px;
+            width: 100px;
+            cursor: pointer;
+        }
+
+        .vertical-line {
+            width: 1px;
+            height: 30px;
+            background-color: white;
+            margin-left: 5px;
+        }
+
+        #List {
+            height: 60px;
+            width: auto;
+            margin-left: 55px;
+            margin-top: 50px;
+        }
+
+        #List li:hover,
+        #List li:active {
+            color: steelblue;
+        }
+
+        #List ul {
+            list-style-type: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            color: white;
+            gap: 35px;
+            cursor: pointer;
+        }
+
+        #Mxlogo {
+            height: 70px;
+            width: 200px;
+            cursor: pointer;
+            margin-left: 0;
+        }
+
+        #Icon_logo {
+            display: flex;
+            gap: 1px;
+            cursor: pointer;
+            margin-left: 160px;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .Allicons {
+            max-width: 30px;
+            max-height: 30px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .Allicons:hover {
+            transform: scale(1.2);
+            /* % zoom effect */
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 130px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 7px;
+            top: 110%;
+            position: absolute;
+            z-index: 2;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+
+        .toolsetting .toolsettingtext {
+            visibility: hidden;
+            width: 150px;
+            background-color: black;
+            color: white;
+            text-align: right;
+            font-size: 14px;
+            text-align: center;
+            border-radius: 5px;
+            padding: 7px;
+            left: 89%;
+            top: 110%;
+            position: absolute;
+            z-index: 2;
+        }
+
+        .toolsetting:hover .toolsettingtext {
+            visibility: visible;
+        }
+
+
+        /*Slider*/
+        .main {
+            width: 100vw;
+            position: relative;
+        }
+
+        .slide {
+            width: 100%;
+            display: none;
+        }
+
+        img {
+            width: 100%;
+            height: 50vh;
+            cursor: pointer;
+        }
+
+        .next {
+            position: absolute;
+            top: 40%;
+            right: 2%;
+        }
+
+        .back {
+            position: absolute;
+            top: 40%;
+            left: 2%;
+            cursor: pointer;
+        }
+
+        button {
+            padding: 5px;
+            cursor: pointer;
+            color: black;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.5s ease;
+            border-radius: 0 3px 3px 0;
+        }
+
+        button:hover {
+            background-color: black;
+            color: white;
+        }
+
+        /* The dots/bullets/indicators */
+        .dot {
+            cursor: pointer;
+            height: 5px;
+            width: 15px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        /* Position dots on top of the slider images */
+        .dots-container {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .dot:hover,
+        .dot.active {
+            background-color: white;
+        }
+
+        .Series_Titles {
+            margin-left: 55px;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        #series_1 {
+            margin-left: 55px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .seriesimg {
+            height: 150px;
+            width: 270px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            /* Smooth transition effect */
+        }
+
+        .seriesimg:hover {
+            transform: scale(1.2);
+            /* % zoom effect */
+        }
+
+        /*Footer*/
+        #Appfooter {
+            margin-top: 55px;
+            margin-left: 52px;
+        }
+
+        .Container {
+            background-color: rgba(25, 23, 23, 0.5);
+            margin-right: 35px;
+            border-radius: 5px;
+        }
+
+        .up_down {
+            display: flex;
+            padding-top: 14px;
+            margin-left: 20px;
+        }
+
+        #lesstext {
+            color: white;
+            cursor: pointer;
+            margin-left: 70%;
+        }
+
+        #lesstext1 {
+            color: white;
+            cursor: pointer;
+            margin-left: 90%;
+        }
+
+
+        #Arrowimg {
+            height: 20px;
+            width: 20px;
+        }
+
+        #div_one {
+            margin-top: 30px;
+            background-color: rgba(25, 23, 23, 0.5);
+            width: 50%;
+            height: 155px;
+            display: flex;
+            color: white;
+        }
+
+        #line-1 {
+            height: 140px;
+            width: 10px;
+            background-color: steelblue;
+            margin-left: 20px;
+        }
+
+        .flex-1 {
+            display: flex;
+        }
+
+        #extra-content {
+            display: block;
+            /* Default visible */
+        }
+
+        #extracontent2 {
+            display: block;
+            /* Default visible */
+        }
+
+        #Container2 {
+            background-color: rgba(12, 1, 1, 0.5);
+            height: 520px;
+            width: 1430px;
+            margin-left: 55px;
+            margin-left: 50px;
+            margin-top: 30px;
+            border-radius: 5px;
+            overflow: hidden;
+            /* Prevent empty space */
+            transition: all 0.3s ease-in-out;
+        }
+
+        #flex2 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .hidden-text {
+            display: none;
+            transition: all 0.3s ease-in-out;
+        }
+
+        #Arrowimg1 {
+            margin-top: 20px;
+            height: 30px;
+            width: 30px;
+        }
+
+        /*footer-2*/
+        #Container3 {
+            background-color: rgba(12, 1, 1, 0.5);
+            height: 800px;
+            width: 1430px;
+            margin-left: 55px;
+            margin-left: 50px;
+            margin-top: 30px;
+            border-radius: 5px;
+            overflow: hidden;
+            /* Prevent empty space */
+            transition: all 0.3s ease-in-out;
+        }
+
+        .rows {
+            display: flex;
+            gap: 220px;
+            margin-left: 35px;
+            margin-top: 20px;
+        }
+
+        .columns {
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .color_change {
+            color: gray;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+        .menu {
+            margin-top: 20px;
+        }
+
+        .color_change:hover {
+            color: steelblue;
+        }
+
+        .up_down2 {
+            display: flex;
+        }
+
+        .extra {
+            display: none;
+        }
+
+        .extra2 {
+            display: none;
+        }
+
+        .extra3 {
+            display: none;
+        }
+
+        .extra4 {
+            display: none;
+        }
+
+        .extra5 {
+            display: none;
+        }
+
+        .extra6 {
+            display: none;
+        }
+
+        #last_foot {
+            background-color: #242926;
+            display: flex;
+            gap: 430px;
+            margin-left: 50px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 12px;
+            color: gainsboro;
+        }
+
+        .tool_1 .tool1 {
+            visibility: hidden;
+            width: 200px;
+            background-color: black;
+            color: white;
+            border-radius: 10px;
+            padding: 3px;
+            text-align: center;
+            position: absolute;
+            z-index: 1;
+            position: absolute;
+            top: 130%;
+            left: 250px;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tool_1:hover .tool1 {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .tool_1 {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tool_2 .tool2 {
+            visibility: hidden;
+            width: 200px;
+            background-color: rgb(231, 15, 148);
+            color: white;
+            border-radius: 10px;
+            padding: 3px;
+            text-align: center;
+            position: absolute;
+            z-index: 1;
+            position: absolute;
+            top: 120%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tool_2:hover .tool2 {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .tool_2 {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tool_3 .tool3 {
+            visibility: hidden;
+            width: 200px;
+            background-color: rgb(74, 25, 220);
+            color: white;
+            border-radius: 10px;
+            padding: 3px;
+            text-align: center;
+            position: absolute;
+            z-index: 1;
+            position: absolute;
+            top: 120%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tool_3:hover .tool3 {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .tool_3 {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tool_4 .tool4 {
+            visibility: hidden;
+            width: 200px;
+            background-color: rgb(251, 54, 0);
+            color: white;
+            border-radius: 10px;
+            padding: 3px;
+            text-align: center;
+            position: absolute;
+            z-index: 1;
+            position: absolute;
+            top: 120%;
+            text-align: center;
+            white-space: nowrap;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tool_4:hover .tool4 {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .tool_4 {
+            position: relative;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body bgcolor="#242926">
+    <div id="head">
+        <header id="Amalogo">
+            <a href="HomePage.html"><img src="Amazon.png" alt="Amazon logo"></a>
+            <div class="vertical-line"></div>
+            <a href="HomePage.html"><img src="Mx player logo.png" alt="Mxplayerlogo" id="Mxlogo"></a>
+            <div id="List">
+                <ul>
+                    <a href="index.html" style="text-decoration: none; color:white;">
+                        <li>Home</li>
+                    </a>
+                    <a href="New_Hot.html" style="text-decoration: none; color:white;">
+                        <li>New & Hot</li>
+                    </a>
+                    <a href="WebSeries.html" style="text-decoration: none; color:white;">
+                        <li>Web Series</li>
+                    </a>
+                    <a href="Movies.html" style="text-decoration: none; color:white;">
+                        <li>Movies</li>
+                    </a>
+                    <a href="VDesi.html" style="text-decoration: none; color:white;">
+                        <li>VDesi</li>
+                    </a>
+                    <a href="Romance.html" style="text-decoration: none; color:white;">
+                        <li>Romance</li>
+                    </a>
+                    <a href="Comedy.html" style="text-decoration: none; color:white;">
+                        <li>Comedy</li>
+                    </a>
+                    <a href="Tamil.html" style="text-decoration: none; color:white;">
+                        <li>Tamil</li>
+                    </a>
+                    <a href="Telugu.html" style="text-decoration: none; color:white;">
+                        <li>Telugu</li>
+                    </a>
+                </ul>
+            </div>
+            <div id="Icon_logo">
+                <a href="SearchPage.html"><img
+                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMCAwaDI0djI0SDB6Ii8+PGcgc3Ryb2tlPSIjRkZGIiBzdHJva2Utd2lkdGg9IjIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQgNCkiPjxjaXJjbGUgY3g9IjYuNSIgY3k9IjYuNSIgcj0iNi41Ii8+PHBhdGggZD0ibTExIDExIDUgNSIvPjwvZz48L2c+PC9zdmc+Cg=="
+                        alt="search_icon" class="Allicons"></a>
+                <div class="tooltip"><a
+                        href="https://www.amazon.in/?&tag=googhydrabk1-21&ref=pd_sl_5szpgfto9i_e&adgrpid=155259813593&hvpone=&hvptwo=&hvadid=674893540034&hvpos=&hvnetw=g&hvrand=4803792196428292479&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9151076&hvtargid=kwd-64107830&hydadcr=14452_2316413&gad_source=1"><img
+                            src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTIwLjIxNSAxOC44M2EuNTAzLjUwMyAwIDAgMC0uMzAyLjAzM2MtMS41NjQuNzE2LTMuMDg1IDEuMjI3LTQuNTYzIDEuNTI5LTMuMTkxLjY1LTYuMzAyLjMxLTkuMzI4LTEuMDE4LS44NC0uMzcxLTIuMDA5LS45OTYtMy41MDQtMS44OGEuMjM4LjIzOCAwIDAgMC0uMTM1LS4wNS4yNjEuMjYxIDAgMCAwLS4xMzQuMDIzLjI0LjI0IDAgMCAwLS4wOTQuMDc5Yy0uMDIzLjAzMy0uMDI4LjA3OC0uMDEuMTM3LjAxNS4wNTYuMDUzLjEyLjExNi4xODguMjY0LjMxLjU5Mi42NC45OC45OS4zODkuMzUuOTA0Ljc0NiAxLjU0NyAxLjE4OEExNS45NyAxNS45NyAwIDAgMCA2LjggMjEuMjI3Yy43LjM0MyAxLjUxMy42MzMgMi40NC44NjYuOTI3LjIzNCAxLjg1NC4zNSAyLjc3OC4zNS45MTkgMCAxLjgxMy0uMDk0IDIuNjc5LS4yNzYuODY4LS4xODYgMS42LS40MDQgMi4xOTYtLjY1OGExMi43ODIgMTIuNzgyIDAgMCAwIDEuNjQ1LS44MzhjLjUwMy0uMzA1Ljg3NC0uNTYzIDEuMTE1LS43Ny4yNDEtLjIwNy40MTQtLjM3LjUxMy0uNDkyLjExNi0uMTQ0LjE3NS0uMjY5LjE3NS0uMzc4LjAwMy0uMTE0LS4wNDMtLjE4LS4xMjctLjJaTTEyLjY1OSA4LjE0NmMtLjM4Ni4wMzMtLjg1LjEwNC0xLjM5Ny4yMS0uNTQ2LjEwNS0xLjA1LjIzNy0xLjUxOC4zOTJhOC4wOSA4LjA5IDAgMCAwLTEuNDMuNjQ1Yy0uNDg3LjI3NC0uOTAxLjU4OS0xLjI0NC45NC0uMzQzLjM1LS42MjIuNzg5LS44NCAxLjMyYTQuNTIzIDQuNTIzIDAgMCAwLS4zMjggMS43NDRjMCAuNjg4LjEyIDEuMy4zNjMgMS44NC4yNDIuNTQxLjU2NC45NjUuOTcgMS4yOC40MDQuMzE1Ljg2NC41NjEgMS4zNzEuNzQyYTQuMjUgNC4yNSAwIDAgMCAxLjYwNS4yMzggNi45MzMgNi45MzMgMCAwIDAgMS42MzUtLjI2MSA0Ljg1NiA0Ljg1NiAwIDAgMCAxLjQ4OC0uNzE5Yy40NjItLjMyNy44NC0uNzE2IDEuMTM4LTEuMTYuMTA5LjE2OC4yMDUuMjkyLjI5Mi4zNzNsLjIyLjIyNmMuMTQ4LjE1LjM3NC4zNy42NzguNjYzLjMwMy4yOTIuNjEyLjU3Ni45MjIuODU1bDIuNjUtMi41MzYtLjE1MS0uMTI0YTMuMTU3IDMuMTU3IDAgMCAxLS4zODYtLjM2NCA2LjU2NyA2LjU2NyAwIDAgMS0uNDM3LS41MiAyLjkyNSAyLjkyNSAwIDAgMS0uMzczLS42NTggMS44NzMgMS44NzMgMCAwIDEtLjE1OC0uNzIzVjUuODc2YzAtLjI1Ni0uMDQ4LS41MzMtLjE0NS0uODMzYTMuNjY5IDMuNjY5IDAgMCAwLS41MjUtLjk3MiA0LjI1MSA0LjI1MSAwIDAgMC0uOTQ1LS45NGMtLjM3OC0uMjc0LS44OC0uNTA3LTEuNTEzLS42OTUtLjYzLS4xODgtMS4zMzUtLjI4Mi0yLjExMi0uMjgyYTguNjUgOC42NSAwIDAgMC0yLjIyNS4yNzdjLS42ODguMTg1LTEuMjc3LjQzMS0xLjc3Ljc0MS0uNDkuMzEtLjkxLjY2OC0xLjI2MSAxLjA3Ny0uMzUuNDA4LS42MTIuODM1LS43ODIgMS4yOC0uMTcuNDQ0LS4yNTcuODkzLS4yNTcgMS4zNDdsMy40MzMuMzAzYy4xNC0uNDE3LjMyOC0uNzc3LjU1OS0xLjA4Ny4yMzMtLjMxLjQ1NC0uNTMzLjY1NS0uNjczLjIwMy0uMTQuNDIxLS4yNTEuNjUyLS4zMzUuMjM0LS4wODQuMzkxLS4xMjcuNDczLS4xMzcuMDgtLjAwOC4xNDQtLjAxLjE5My0uMDEuNjc3IDAgMS4xNDcuMiAxLjQxMS41OTkuMTY1LjI0MS4yNDYuNjA3LjI0NiAxLjF2MS40MzZjLS4zODUuMDE2LS43NzEuMDQxLTEuMTU3LjA3NFptMS4xNiAzLjg1N2MwIC40MjEtLjA1Ni44MDUtLjE2NSAxLjE0Mi0uMjMzLjc0LS42NzggMS4yMDQtMS4zMyAxLjM5Mi0uNTcuMTY3LTEuMTEuMDg0LTEuNjIzLS4yNDktLjU0Ni0uMzU2LS44MTctLjg1OC0uODE3LTEuNTA2IDAtLjUwNS4xMjctLjkzNy4zOC0xLjI5N2EyLjMxMyAyLjMxMyAwIDAgMSAxLjAxNi0uODA1IDUuOTc2IDUuOTc2IDAgMCAxIDEuMjQ0LS4zNzggOC41MzQgOC41MzQgMCAwIDEgMS4yOTUtLjEzN3YxLjgzOFptOC41MTEgNS41NThjLS4xMS0uMTM3LS40MDQtLjIyNi0uODg2LS4yNzJhNS4zMDEgNS4zMDEgMCAwIDAtMS4yNjIuMDFjLS4zODguMDQ2LS43OS4xNTgtMS4yMDEuMzQtLjQxNC4xOC0uNTk0LjMzMy0uNTQ4LjQ1M2wuMDE3LjAzMy4wMjMuMDE3LjAzNi4wMDVoLjExNmMuMDIgMCAuMDQ2LS4wMDIuMDgyLS4wMDUuMDM1LS4wMDIuMDY4LS4wMDcuMDk5LS4wMS4wMy0uMDAyLjA3My0uMDA4LjEzLS4wMWExLjQxIDEuNDEgMCAwIDAgLjE1Mi0uMDE4Yy4wMDcgMCAuMDk0LS4wMDcuMjYxLS4wMjMuMTY4LS4wMTUuMjktLjAyNS4zNjMtLjAzMy4wNzQtLjAwNy4xOTgtLjAxNS4zNjgtLjAyMmEzLjYxIDMuNjEgMCAwIDEgLjQxIDBsLjM0NS4wMjdjLjEyOS4wMS4yMzMuMDMzLjMxNC4wNjlhLjM5OS4zOTkgMCAwIDEgLjE4LjEzYy4xMzMuMTY3LjEwNy41MzgtLjA3NiAxLjExNGExMS4xMDIgMTEuMTAyIDAgMCAxLS41MTggMS4zNzZjLS4wNy4xNDUtLjA3LjIzNCAwIC4yNzIuMDcyLjAzOC4xNy4wMDMuMzAzLS4xMDIuMzk2LS4zMS43MjYtLjc3Ny45OTItMS40MDQuMTU1LS4zNy4yNjctLjc1Ni4zMzMtMS4xNi4wNjEtLjQwNC4wNS0uNjY1LS4wMzMtLjc4N1oiIGZpbGw9IiNGRjhGMDAiLz48L3N2Zz4="
+                            alt="amazon_icon" class="Allicons"></a>
+                    <p class="tooltiptext">Go to Amazon</p>
+                </div>
+
+                <div class="toolsetting"><img
+                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTkuOTc0IDUuODJjMC0xLjAwNy44MS0xLjgyIDEuODAxLTEuODJoMS40NWExLjgxIDEuODEgMCAwIDEgMS44MDEgMS44MnYuNDk4Yy4zOTUuMTcuNzcxLjM4MiAxLjEyMy42MzJsLjQyNS0uMjQ2YTEuNzk1IDEuNzk1IDAgMCAxIDIuNDU3LjY2MmwuNzI1IDEuMjZhMS44MjYgMS44MjYgMCAwIDEtLjY2MyAyLjQ5bC0uMzc3LjIyYTYuMjggNi4yOCAwIDAgMSAwIDEuMzI5bC4zNzcuMjE4YTEuODI4IDEuODI4IDAgMCAxIC42NjMgMi40OTFsLS43MjUgMS4yNmExLjc5NCAxLjc5NCAwIDAgMS0yLjQ1Ny42NjJsLS40MjUtLjI0NmMtLjM1Mi4yNS0uNzI4LjQ2Mi0xLjEyMy42MzJ2LjQ5N2MwIDEuMDA4LS44MSAxLjgyMS0xLjgwMSAxLjgyMWgtMS40NWExLjgxIDEuODEgMCAwIDEtMS44MDEtMS44MnYtLjU4OWE2LjE0MiA2LjE0MiAwIDAgMS0xLjAxMS0uNjA2bC0uNTM3LjMxMWExLjc5NSAxLjc5NSAwIDAgMS0yLjQ1Ny0uNjYybC0uNzI1LTEuMjZhMS44MjggMS44MjggMCAwIDEgLjY2My0yLjQ5bC41NjgtLjMzYTYuMjg0IDYuMjg0IDAgMCAxIDAtMS4xMDlsLS41NjgtLjMyOGExLjgyOCAxLjgyOCAwIDAgMS0uNjYzLTIuNDkxbC43MjUtMS4yNmExLjc5NCAxLjc5NCAwIDAgMSAyLjQ1Ny0uNjYybC41MzcuMzFhNi4xNDIgNi4xNDIgMCAwIDEgMS4wMS0uNjA1VjUuODJ6bTEuNDI4IDEuMDczYS43MjcuNzI3IDAgMCAxLS40NjYuNjgyIDQuNzE4IDQuNzE4IDAgMCAwLTEuNDQzLjg2NS43MDQuNzA0IDAgMCAxLS44MTkuMDgxbC0uOTU1LS41NTNhLjM4LjM4IDAgMCAwLS41MTguMTMzbC0uNzI0IDEuMjZhLjM1OS4zNTkgMCAwIDAgLjEzNi40OTJsLjk4Ni41N2EuNzMyLjczMiAwIDAgMSAuMzUuNzYgNC43NjggNC43NjggMCAwIDAgMCAxLjYzNC43MzIuNzMyIDAgMCAxLS4zNS43NmwtLjk4Ni41N2EuMzU5LjM1OSAwIDAgMC0uMTM2LjQ5MmwuNzI1IDEuMjZhLjM4LjM4IDAgMCAwIC41MTcuMTMzbC45NTUtLjU1M2EuNzA0LjcwNCAwIDAgMSAuODIuMDhjLjQyNi4zNzQuOTE1LjY2NyAxLjQ0Mi44NjYuMjguMTA2LjQ2Ni4zNzguNDY2LjY4MnYxLjA3MmMwIC4yMDEuMTY0LjM2Ni4zNzMuMzY2aDEuNDVhLjM3MS4zNzEgMCAwIDAgLjM3My0uMzY2di0xYzAtLjMxNS4xOTktLjU5NC40OTMtLjY5MWE0LjcxMSA0LjcxMSAwIDAgMCAxLjU0Ni0uODY4LjcwNC43MDQgMCAwIDEgLjgwOS0uMDcybC44MzUuNDg0YS4zOC4zOCAwIDAgMCAuNTE4LS4xMzNsLjcyNC0xLjI2YS4zNTkuMzU5IDAgMCAwLS4xMzYtLjQ5MmwtLjgwNC0uNDY1YS43MzIuNzMyIDAgMCAxLS4zNDctLjc3NCA0Ljc3IDQuNzcgMCAwIDAgMC0xLjgxNi43MzIuNzMyIDAgMCAxIC4zNDctLjc3NGwuODA0LS40NjVhLjM1OS4zNTkgMCAwIDAgLjEzNi0uNDkybC0uNzI1LTEuMjZhLjM4LjM4IDAgMCAwLS41MTctLjEzM2wtLjgzNS40ODNhLjcwNC43MDQgMCAwIDEtLjgwOS0uMDcxIDQuNzExIDQuNzExIDAgMCAwLTEuNTQ3LS44NjcuNzI2LjcyNiAwIDAgMS0uNDkyLS42OTJ2LTFhLjM2OS4zNjkgMCAwIDAtLjM3My0uMzY2aC0xLjQ1YS4zNzEuMzcxIDAgMCAwLS4zNzMuMzY2djEuMDcyem0xLjA5OCA3LjY1MmMtMS4zOCAwLTIuNS0xLjE0LTIuNS0yLjU0NSAwLTEuNDA2IDEuMTItMi41NDUgMi41LTIuNTQ1UzE1IDEwLjU5NSAxNSAxMmMwIDEuNDA2LTEuMTIgMi41NDUtMi41IDIuNTQ1em0wLTEuNDU0Yy41OTIgMCAxLjA3MS0uNDg5IDEuMDcxLTEuMDkxcy0uNDgtMS4wOS0xLjA3MS0xLjA5QTEuMDggMS4wOCAwIDAgMCAxMS40MjkgMTJjMCAuNjAyLjQ4IDEuMDkgMS4wNzEgMS4wOXoiIGZpbGw9IiNGRkYiLz48L3N2Zz4="
+                        alt="setting_icon" class="Allicons">
+                    <p class="toolsettingtext">Parental Control<br>Delete Your miniTv Data</p>
+                </div>
+            </div>
+        </header>
+    </div>
+    <!-- 2. SLIDER HTML-->
+    <div class="main">
+        <div class="slide">
+            <img src="z.png" />
+        </div>
+        <div class="slide">
+            <img src="y.png" />
+        </div>
+        <div class="slide">
+            <img src="x.png" />
+        </div>
+        <div class="slide">
+            <img src="w.png" />
+        </div>
+        <div class="slide">
+            <img src="v.png" />
+        </div>
+        <div id="dots-container" style=" text-align: center;">
+            <span class="dot" onclick="ClickSlide(1)"></span>
+            <span class="dot" onclick="ClickSlide(2)"></span>
+            <span class="dot" onclick="ClickSlide(3)"></span>
+            <span class="dot" onclick="ClickSlide(4)"></span>
+            <span class="dot" onclick="ClickSlide(5)"></span>
+        </div>
+        <div class="back"><button onclick="controlimage(-1);">&lt;</button></div>
+        <div class="next"><button onclick="controlimage(1);">&gt;</button></div>
+    </div>
+    <p class="Series_Titles">Blockbuster Movies: All</p><br>
+    <div id="series_1">
+        <img src="D1.jpg" alt="Series1" class="seriesimg">
+        <img src="D2.jpg" alt="Series2" class="seriesimg">
+        <img src="D3.jpg" alt="Series3" class="seriesimg">
+        <img src="D4.jpg" alt="Series4" class="seriesimg">
+        <img src="D5.jpg" alt="Series5" class="seriesimg">
+    </div>
+    <br>
+    <p class="Series_Titles">Chart Topping Movies: Dubbed in Hindi</p><br>
+    <div id="series_1">
+        <img src="D6.jpeg" alt="Series6" class="seriesimg">
+        <img src="D7.jpg" alt="Series7" class="seriesimg">
+        <img src="D8.jpg" alt="Series8" class="seriesimg">
+        <img src="D9.jpeg" alt="Series9" class="seriesimg">
+        <img src="D10.jpg" alt="Series10" class="seriesimg">
+    </div>
+    <br>
+    <p class="Series_Titles">International Movies Dubbed in Hindi</p><br>
+    <div id="series_1">
+        <img src="D11.jpg" alt="Series11" class="seriesimg">
+        <img src="D12.jpg" alt="Series12" class="seriesimg">
+        <img src="D13.jpg" alt="Series13" class="seriesimg">
+        <img src="D14.jpg" alt="Series14" class="seriesimg">
+        <img src="D15.jpg" alt="Series15" class="seriesimg">
+    </div>
+    <br>
+    <p class="Series_Titles">Asian action movies</p><br>
+    <div id="series_1">
+        <img src="D16.jpg" alt="Series16" class="seriesimg">
+        <img src="D17.jpg" alt="Series17" class="seriesimg">
+        <img src="D18.jpg" alt="Series18" class="seriesimg">
+        <img src="D19.jpg" alt="Series19" class="seriesimg">
+        <img src="D20.jpeg" alt="Series20" class="seriesimg">
+    </div>
+    <br>
+    <p class="Series_Titles">Love is in the air</p><br>
+    <div id="series_1">
+        <img src="D21.jpg" alt="Series21" class="seriesimg">
+        <img src="D22.jpg" alt="Series22" class="seriesimg">
+        <img src="D23.jpg" alt="Series23" class="seriesimg">
+        <img src="D24.jpg" alt="Series24" class="seriesimg">
+        <img src="D25.jpg" alt="Series25" class="seriesimg">
+    </div>
+    <br>
+    <p class="Series_Titles">Crime & Suspense</p><br>
+    <div id="series_1">
+        <img src="D26.jpg" alt="Series26" class="seriesimg">
+        <img src="D27.jpg" alt="Series27" class="seriesimg">
+        <img src="D28.jpg" alt="Series28" class="seriesimg">
+        <img src="D29.jpg" alt="Series29" class="seriesimg">
+        <img src="D30.jpg" alt="Series30" class="seriesimg">
+    </div>
+    <br>
+    <p class="Series_Titles">Adventure movies</p><br>
+    <div id="series_1">
+        <img src="D31.jpg" alt="Series31" class="seriesimg">
+        <img src="D32.jpg" alt="Series32" class="seriesimg">
+        <img src="D33.jpg" alt="Series33" class="seriesimg">
+        <img src="D34.jpg" alt="Series34" class="seriesimg">
+        <img src="D35.jpg" alt="Series35" class="seriesimg">
+    </div>
+    <br>
+    <p class="Series_Titles">Most Loved Movies</p><br>
+    <div id="series_1">
+        <img src="D36.jpg" alt="Series36" class="seriesimg">
+        <img src="D37.jpg" alt="Series37" class="seriesimg">
+        <img src="D38.jpg" alt="Series38" class="seriesimg">
+        <img src="D39.jpg" alt="Series39" class="seriesimg">
+        <img src="D40.jpg" alt="Series40" class="seriesimg">
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div id="Appfooter">
+            <div class="Container">
+                <div class="up_down">
+                    <p id="lesstext1" onclick="toggleContent()" style="color: blue;">View Less</p>&nbsp;&nbsp;
+                    <img src="arrows-up.png" alt="Arrow" id="Arrowimg">
+                </div>
+                <div class="flex-1">
+                    <div id="div_one">
+                        <div id="line-1"></div>&nbsp;&nbsp;&nbsp;
+                        <h3>Watch Movies & Short Films Online on Amazon miniTV for free
+                            <p style="font-size: 14px; color:gray; margin-top:5px; font-weight:100;">If you are looking
+                                to live out a realistic experience without paying for a membership, Amazon miniTV
+                                website is a real
+                                lifesaver for all you movie lovers! We have an immense library of movies and short
+                                films, and the best part is that you
+                                can watch them absolutely free of charge! So now, you can enjoy your favourite movies
+                                and short stories, including
+                                <a href="##">K-dramas</a>, romance and comedy shows, all on the Amazon miniTV app.
+                            </p>
+                        </h3>
+                    </div>
+                    <div id="div_one">
+                        <div id="line-1"></div>&nbsp;&nbsp;&nbsp;
+                        <h3>Stream Top IMDb Rated Short Films & Movies for free
+                            <p style="font-size: 14px; color:gray; margin-top:5px; font-weight:100;">Quality is
+                                paramount when it comes to the content you experience, and Amazon miniTV delivers in
+                                this aspect as well. You
+                                can find top-rated movies and short films based on IMDb ratings, ensuring you're in for
+                                a cinematic treat. Whether
+                                you're into heartwarming <a href="##">Korean dramas in Hindi</a>, or suspenseful
+                                mysteries, Amazon miniTV
+                                has something to suit your
+                                preferences.
+                            </p>
+                        </h3>
+                    </div>
+                </div>
+                <div id="extra-content">
+                    <div class="flex-1">
+                        <div id="div_one">
+                            <div id="line-1"></div>&nbsp;&nbsp;&nbsp;
+                            <h3>Popular Hollywood Movies on Amazon miniTV
+                                <p style="font-size: 14px; color:gray; margin-top:5px; font-weight:100;">Hollywood fans
+                                    are in for a special treat on Amazon miniTV. On our app, you can find your favourite
+                                    Hollywood movies
+                                    that cater to various preferences. They feature everything from timeless hits to the
+                                    most recent releases so that you
+                                    can fulfil your heart’s desires. Whether you're in the mood for a romantic tale, an
+                                    energising action, or comical
+                                    satire, you'll find all of it here. Some of the must-watch films include <a
+                                        href="##">Twilight,
+                                        Hunger Games</a>, and <a href="##">Step Up</a> among a
+                                    list of many. Furthermore, you can watch all these movies in a host of dubbed
+                                    languages like Hindi, Tamil and Telugu. So
+                                    what are you waiting for? Make the most of our offerings by registering on our
+                                    exclusive website or downloading the app
+                                    today!</p>
+                            </h3>
+                        </div>
+                        <div id="div_one">
+                            <div id="line-1"></div>&nbsp;&nbsp;&nbsp;
+                            <h3>Different genres of Movies & Short Films available on Amazon miniTV
+                                <p style="font-size: 14px; color:gray; margin-top:5px; font-weight:100;">A remarkable
+                                    aspect
+                                    of Amazon miniTV is its wide range of genres. Whether you love thrilling mysteries,
+                                    <a href="##">romance web
+                                        series</a>, or spine-tingling horror, you'll find something to match your movie
+                                    preferences.
+                                    The platform features genres
+                                    like: Drama: Dive into the intricate narratives of human emotion and relationships
+                                    with
+                                    a wide range of dramatic films
+                                    and short stories.Action: Get your adrenaline pumping with high-octane action movies
+                                    that will keep you on the edge of
+                                    your seat. Comedy: Lighten up your day with hilarious comedy series and videos,
+                                    ranging
+                                    from slapstick humour to witty
+                                    satires. Romance: Experience the magic of love through heartwarming romantic movies
+                                    that
+                                    touch your heart. Thriller: If
+                                    you're a fan of suspense and excitement, <a href="##">Amazon miniTV</a> offers a
+                                    selection of
+                                    thrilling
+                                    movies that will keep you
+                                    guessing until the end. Horror: For those who love a good scare, there are various
+                                    horror movies such as ?<a href="##">The Haunting</a> to
+                                    send shivers down your spine. Documentary: Delve into reality with thought-provoking
+                                    documentaries that explore various
+                                    aspects of our society and culture.
+                                </p>
+                            </h3>
+                        </div>
+                    </div>
+                    <div id="div_one">
+                        <div id="line-1"></div>&nbsp;&nbsp;&nbsp;
+                        <h3>List of New Movies and Short Films on Amazon miniTV
+                            <p style="font-size: 14px; color:gray; margin-top:5px; font-weight:100;">Amazon miniTV keeps
+                                its content library fresh and updated by adding new short films and movies regularly.
+                                Along this
+                                line, you'll continuously approach the most recent cinematic choices. Whether you are
+                                looking to find recent releases or
+                                unseen treasures, you can filter various new films and short movies along with Turkish
+                                dramas in Hindi to keep your
+                                entertainment experience energising and fulfilling. Some of the must-watch short films
+                                online are <a href="##">Rakshak India’s Brave,
+                                    Gupt Gyaan, Devi, Good Morning</a> and more.</p>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Container2">
+            <div class="up_down">
+                <h2 style="color:white;">Frequently Asked Questions</h2>
+                <p id="lesstext" onclick="toggleContent2()" style="color: blue;">View Less</p>&nbsp;&nbsp;
+                <img src="arrows-up.png" alt="Arrow" id="Arrowimg">
+            </div>
+            <div id="flex2">
+                <h3 style="color:white; margin-left:20px; margin-top:25px; margin-bottom:25px; cursor:pointer;">
+                    What are movies & short films?
+                </h3>
+                <img src="arrow.png" onclick="paratext();" alt="Arrow" id="Arrowimg1" style="margin-left:900px;">
+            </div>
+            <p style="color:darkgrey; margin-left:20px; margin-bottom:15px;" id="extratext" class="hidden-text">Movies
+                are commonly lengthy, run over one to three or more hours, and tell an itemised story with a clear
+                beginning,
+                middle, and finish. Short films, then again, are too much shorter, usually only a few minutes to close
+                to 30 minutes,
+                and they centre around a quick story or message.</p>
+            <hr>
+            <div id="flex2">
+                <h3 style="color:white; margin-left:20px; margin-top:25px; margin-bottom:25px; cursor:pointer;">Are
+                    short films free to watch on Amazon miniTV?
+                </h3>
+                <img src="arrow.png" onclick="paratext1();" alt="Arrow" id="Arrowimg1" style="margin-left:854px;">
+            </div>
+            <p style="color:darkgrey; margin-left:20px; margin-bottom:15px;" id="extratext1" class="hidden-text">Yes,
+                short films on Amazon miniTV are available for free. You can enjoy a wide variety of short stories
+                without any
+                cost. To learn more, you can also download the app or visit the website.</p>
+            <div id="extracontent2">
+                <hr>
+                <div id="flex2">
+                    <h3 style="color:white; margin-left:20px; margin-top:25px; margin-bottom:25px; cursor:pointer;">Are
+                        movies free to watch on Amazon miniTV?
+                    </h3>
+                    <img src="arrow.png" alt="Arrow" onclick="paratext2();" id="Arrowimg1" style="margin-left:950px;">
+                </div>
+                <p style="color:darkgrey; margin-left:20px; margin-bottom:15px;" id="extratext2" class="hidden-text">
+                    Indeed, you can watch short films for free on Amazon miniTV. The platform offers an extensive
+                    collection of movies
+                    across various genres without subscription fees.</p>
+                <hr>
+                <div id="flex2">
+                    <h3 style="color:white; margin-left:20px; margin-top:25px; margin-bottom:25px; cursor:pointer;">What
+                        are the different genres of movies available on Amazon miniTV?
+                    </h3>
+                    <img src="arrow.png" alt="Arrow" onclick="paratext3();" id="Arrowimg1" style="margin-left:700px;">
+                </div>
+                <p style="color:darkgrey; margin-left:20px; margin-bottom:15px;" id="extratext3" class="hidden-text">
+                    Amazon miniTV offers a different scope of movie genres including drama, action, romance, thrillers,
+                    horror and comedy.
+                    You can explore these kinds of genre lists that suit your inclinations.</p>
+                <hr>
+                <div id="flex2">
+                    <h3 style="color:white; margin-left:25px; margin-top:20px; margin-bottom:25px; cursor:pointer;">
+                        Can I find exclusive or original movies and short films on Amazon miniTV?
+                    </h3>
+                    <img src="arrow.png" alt="Arrow" onclick="paratext4();" id="Arrowimg1" style="margin-left:400px;">
+                </div>
+                <p style="color:darkgrey; margin-left:10px; margin-bottom:15px;" id="extratext4" class="hidden-text">
+                    Yes, Amazon miniTV gives you exclusive and original content. You can watch a broad range of
+                    Hollywood dubbed movies,
+                    Indian short films, and TV shows for free on Amazon minitv Web & App</p>
+            </div>
+        </div>
+        <!-- Footer-2 -->
+        <div id="Container3">
+            <div class="up_down">
+                <p id="lesstext3" onclick="toggleContent3();" style="margin-left: 1260px; color:blue; cursor:pointer;">
+                    View Less</p>
+                &nbsp;&nbsp;
+                <img src="arrows-up.png" alt="Arrow" id="Arrowimg">
+            </div>
+            <div class="rows">
+                <div class="columns">
+                    <div>Trending Web Series</div>
+                    <div class="menu">
+                        <a href="###" class="color_change">Adulting Web Series</a><br><br>
+                        <a href="###" class="color_change">Please Find Attached</a><br><br>
+                        <a href="###" class="color_change">Sixer Web Series</a><br><br>
+                        <a href="###" class="color_change">Slum Golf</a><br><br>
+                        <div class="extra">
+                            <a href="###" class="color_change">Hack Crimes Online</a><br><br>
+                            <a href="###" class="color_change">Laakhon Mein Ek</a><br><br>
+                            <a href="###" class="color_change">Afsos</a><br><br>
+                            <a href="###" class="color_change">Couple Goals</a><br><br>
+                        </div>
+                        <div class="up_down2">
+                            <p id="fontless" onclick="one();" style="color: blue; cursor:pointer;">View Less</p>
+                            &nbsp;&nbsp;
+                            <img src="arrows-up.png" alt="Arrow" id="Arrowimg">
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div>Romance</div>
+                    <div class="menu">
+                        <a href="###" class="color_change">Campus Beats</a><br><br>
+                        <a href="###" class="color_change">Lucky Guy Series</a><br><br>
+                        <a href="###" class="color_change">She Was Pretty</a><br><br>
+                        <a href="###" class="color_change">Crushed Season 1</a><br><br>
+                        <div class="extra2">
+                            <a href="###" class="color_change">My First Love</a><br><br>
+                            <a href="###" class="color_change">Lucky Romance</a><br><br>
+                            <a href="###" class="color_change">Tempted</a><br><br>
+                            <a href="###" class="color_change">Romance Web Series</a><br><br>
+                        </div>
+                        <div class="up_down2">
+                            <p id="fontless2," onclick="two();" style="color: blue; cursor:pointer;">View Less</p>
+                            &nbsp;&nbsp;
+                            <img src="arrows-up.png" alt="Arrow" id="Arrowimg">
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div>Movies & Short Films</div>
+                    <div class="menu">
+                        <a href="###" class="color_change">The List</a><br><br>
+                        <a href="###" class="color_change">The Haunting</a><br><br>
+                        <a href="###" class="color_change">Jahaan</a><br><br>
+                        <a href="###" class="color_change">Gupt Gyaan</a><br><br>
+                        <div class="extra3">
+                            <a href="###" class="color_change">Capital a Small a</a><br><br>
+                            <a href="###" class="color_change">Yatri Kripya Dhyan De</a><br><br>
+                            <a href="###" class="color_change">Arranged</a><br><br>
+                            <a href="###" class="color_change">Short Films</a><br><br>
+                        </div>
+                        <div class="up_down2">
+                            <p id="fontless3," onclick="three();" style="color: blue; cursor:pointer;">View Less</p>
+                            &nbsp;&nbsp;
+                            <img src="arrows-up.png" alt="Arrow" id="Arrowimg">
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div>Comedy Web Series & Shows</div>
+                    <div class="menu">
+                        <a href="###" class="color_change">Comedy Shows</a><br><br>
+                        <a href="###" class="color_change">Who's Your Gynac</a><br><br>
+                        <a href="###" class="color_change">Builders Web Series</a><br><br>
+                        <a href="###" class="color_change">Farzi Mushaira</a><br><br>
+                        <div class="extra4">
+                            <a href="###" class="color_change">Case to Banta Hai</a><br><br>
+                            <a href="###" class="color_change">Baap Numbri Beta Dus Numbri</a><br><br>
+                            <a href="###" class="color_change">The Salesman</a><br><br>
+                            <a href="###" class="color_change">Sasta Shark Tank</a><br><br>
+                        </div>
+                        <div class="up_down2">
+                            <p id="fontless4," onclick="four();" style="color: blue; cursor:pointer;">View Less</p>
+                            &nbsp;&nbsp;
+                            <img src="arrows-up.png" alt="Arrow" id="Arrowimg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="extracontent3">
+                <div class="rows">
+                    <div class="columns">
+                        <div>Binge Web Series</div>
+                        <div class="menu">
+                            <a href="###" class="color_change">Ishq Express</a><br><br>
+                            <a href="###" class="color_change">Hip Hop India</a><br><br>
+                            <a href="###" class="color_change">Crushed Season 3</a><br><br>
+                            <a href="###" class="color_change">Physics Wallah Web Series</a><br><br>
+                            <div class="extra5">
+                                <a href="###" class="color_change">Murder in Agonda</a><br><br>
+                                <a href="###" class="color_change">Half Ca Web Series</a><br><br>
+                                <a href="###" class="color_change">Yeh Meri Family</a><br><br>
+                                <a href="###" class="color_change">Dude</a><br><br>
+                            </div>
+                            <div class="up_down2">
+                                <p id="fontless5," onclick="five();" style="color: blue; cursor:pointer;">View Less</p>
+                                &nbsp;&nbsp;
+                                <img src="arrows-up.png" alt="Arrow" id="Arrowimg">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div>Imported Web Series & Shows</div>
+                        <div class="menu">
+                            <a href="###" class="color_change">Cheer Up</a><br><br>
+                            <a href="###" class="color_change">Weightlifting Fairy Kim Bok Joo</a><br><br>
+                            <a href="###" class="color_change">Warm Meet You</a><br><br>
+                            <a href="###" class="color_change">Your Honor</a><br><br>
+                            <div class="extra6">
+                                <a href="###" class="color_change">Doctor Detective</a><br><br>
+                                <a href="###" class="color_change">XX Series</a><br><br>
+                                <a href="###" class="color_change">Come and Hug Me</a><br><br>
+                                <a href="###" class="color_change">Korean Drama</a><br><br>
+                            </div>
+                            <div class="up_down2">
+                                <p id="fontless6," onclick="six();" style="color: blue; cursor:pointer;">View Less</p>
+                                &nbsp;&nbsp;
+                                <img src="arrows-up.png" alt="Arrow" id="Arrowimg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Amalogo">
+            <a href="HomePage.html"><img src="Amazon.png" alt="Amazon logo"></a>
+            <div class="vertical-line"></div>
+            <a href="HomePage.html"><img src="Mx player logo.png" alt="Mxplayerlogo" id="Mxlogo"></a>
+            <img src="Young_Janta_ko_yahi_mangta.png" alt="Young_Janta_img" style="height: 20px; width:290px;">
+            <a href="https://play.google.com/store/apps/details?id=com.mxtech.videoplayer.ad&hl=en_IN"><img
+                    src="https://m.media-amazon.com/images/G/31/img17/Home/AmazonTV/Web/images/play-store-icon.svg"
+                    alt="Google Play"></a>
+            <a href="https://apps.apple.com/in/app/mx-player/id1429703801"><img
+                    src="https://m.media-amazon.com/images/G/31/img17/Home/AmazonTV/Web/images/app-store-icon.svg"
+                    alt="App Store"></a>
+            <img src="https://m.media-amazon.com/images/G/31/img17/Home/AmazonTV/qrcode.jpeg" alt="QR Code"
+                style="height: 100px; width:120px; margin-top:20px;">
+            <!-- ToolTip  -->
+            <div class="tool_1">
+                <a href="https://x.com/i/flow/login?redirect_after_login=%2FamazonminiTV"><img
+                        src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAgNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiMxQTIyMjQiLz48cGF0aCBkPSJNMzAuMzY3IDEyLjA3N2MtMS4wMTcuNDk4LTIuMDEzLjctMy4wNSAxLjAwNi0xLjE0LTEuMjg2LTIuODMtMS4zNTctNC40NTMtLjc0OS0xLjYyNC42MDgtMi42ODcgMi4wOTQtMi42NjQgMy44djEuMDE2Yy0zLjMuMDg0LTYuMjM3LTEuNDE4LTguMTMzLTQuMDY3IDAgMC00LjI1MiA3LjU1NyA0LjA2NiAxMS4xODQtMS45MDMgMS4yNjgtMy44MDEgMi4xMjMtNi4xIDIuMDMzIDMuMzY0IDEuODMzIDcuMDI4IDIuNDYzIDEwLjIwMiAxLjU0MiAzLjY0LTEuMDU3IDYuNjMtMy43ODUgNy43NzgtNy44Ny4zNDItMS4yNDMuNTEyLTIuNTI3LjUwNS0zLjgxNi0uMDAyLS4yNTMgMS41MzUtMi44MTggMS44NDktNC4wOHYwWiIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utb3BhY2l0eT0iLjciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4="
+                        alt="Twitter" style="height:40px; width:50px; cursor:pointer; margin-left:250px;"></a>
+                <p class="tool1">Follow us on Twitter</p>
+            </div>
+            <div class="tool_2">
+                <a href="https://www.instagram.com/amazonminitv/"><img
+                        src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAgNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiMxQTIyMjQiLz48ZyBjbGlwLXBhdGg9InVybCgjYSkiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9Ii43IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0yNC4zMzMgMTEuMzMzaC04LjY2NmE0LjMzMyA0LjMzMyAwIDAgMC00LjMzNCA0LjMzNHY4LjY2NmE0LjMzMyA0LjMzMyAwIDAgMCA0LjMzNCA0LjMzNGg4LjY2NmE0LjMzMyA0LjMzMyAwIDAgMCA0LjMzNC00LjMzNHYtOC42NjZhNC4zMzMgNC4zMzMgMCAwIDAtNC4zMzQtNC4zMzRaIiBzdHJva2Utd2lkdGg9IjEuNSIvPjxwYXRoIGQ9Ik0yMCAyMy4yNWEzLjI1IDMuMjUgMCAxIDAgMC02LjUgMy4yNSAzLjI1IDAgMCAwIDAgNi41WiIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48cGF0aCBkPSJNMjQuODc1IDE1LjEyNXYuMDAxIiBzdHJva2Utd2lkdGg9IjIuMzc1Ii8+PC9nPjxkZWZzPjxjbGlwUGF0aCBpZD0iYSI+PHBhdGggZmlsbD0iI2ZmZiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNyA3KSIgZD0iTTAgMGgyNnYyNkgweiIvPjwvY2xpcFBhdGg+PC9kZWZzPjwvc3ZnPg=="
+                        alt="Instagram" style="height:40px; width:50px; cursor:pointer; margin-left:10px;"></a>
+                <p class="tool2">Follow us on Instagram</p>
+            </div>
+            <div class="tool_3">
+                <a href="https://www.facebook.com/AmazonminiTV"><img
+                        src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAgNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiMxQTIyMjQiLz48ZyBjbGlwLXBhdGg9InVybCgjYSkiPjxwYXRoIGQ9Ik0xNS4yMiAxNy44NTR2My45MTZoMi45Mzd2Ni44NTRoMy45MTdWMjEuNzdoMi45MzdsLjk3OS0zLjkxNmgtMy45MTZ2LTEuOTU4YS45OC45OCAwIDAgMSAuOTc5LS45OGgyLjkzN1YxMWgtMi45MzdhNC44OTYgNC44OTYgMCAwIDAtNC44OTYgNC44OTZ2MS45NThIMTUuMjJaIiBzdHJva2U9IiNmZmYiIHN0cm9rZS1vcGFjaXR5PSIuNyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvZz48ZGVmcz48Y2xpcFBhdGggaWQ9ImEiPjxwYXRoIGZpbGw9IiNmZmYiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMuMjIgMykiIGQ9Ik0wIDBoMzQuNHYzNC40SDB6Ii8+PC9jbGlwUGF0aD48L2RlZnM+PC9zdmc+"
+                        alt="Facebook" style="height:40px; width:50px; cursor:pointer; margin-left:10px;"></a>
+                <p class="tool3">Like us on Facebook</p>
+            </div>
+            <div class="tool_4">
+                <a href=" https://www.youtube.com/channel/UC1NtcHxG3wiyhtbbPmIaMnA"><img
+                        src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDAgNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiMxQTIyMjQiLz48ZyBjbGlwLXBhdGg9InVybCgjYSkiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9Ii43IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMjUuNTczIDEyLjQ2M0gxNC42NDhhNC4zNyA0LjM3IDAgMCAwLTQuMzcgNC4zN3Y2LjU1NWE0LjM3IDQuMzcgMCAwIDAgNC4zNyA0LjM3aDEwLjkyNWE0LjM3IDQuMzcgMCAwIDAgNC4zNy00LjM3di02LjU1NWE0LjM3IDQuMzcgMCAwIDAtNC4zNy00LjM3WiIvPjxwYXRoIGQ9Im0xNy45MjUgMTYuODMzIDUuNDYyIDMuMjc3LTUuNDYyIDMuMjc4di02LjU1NVoiLz48L2c+PGRlZnM+PGNsaXBQYXRoIGlkPSJhIj48cGF0aCBmaWxsPSIjZmZmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3IDcpIiBkPSJNMCAwaDI2LjIydjI2LjIySDB6Ii8+PC9jbGlwUGF0aD48L2RlZnM+PC9zdmc+"
+                        alt="Youtube" style="height:40px; width:50px; cursor:pointer; margin-left:10px;"></a>
+                <p class="tool4">Watch us on Youtube</p>
+            </div>
+        </div>
+        <div id="last_foot">
+            <p>Platform: Windows 10</p>
+            <p>Browser: Chrome 133.0.0.0</p>
+            <p>SessionId: 258-9162431-6349269 /A9M35T6HB2OO8</p>
+        </div>
+        </div>
+    </footer>
+
+    <!-- Slider js -->
+    <script>
+        let n = 0;
+        let autoSlideInterval;
+
+        // Show the first slide initially
+        slideshow(n);
+
+        // Control the slides with buttons
+        function controlimage(x) {
+            n = n + x;
+            slideshow(n);
+        }
+        // Function to show slides
+        function slideshow(num) {
+            let slide = document.getElementsByClassName("slide");
+            let dot = document.getElementsByClassName("dot");
+
+            if (num == slide.length) {
+                num = 0;
+                n = 0;
+            }
+            if (num < 0) {
+                num = slide.length - 1;
+                n = num;
+            }
+
+            // for (let a of slide) {
+            //   a.style.display = "none";
+            // }
+
+            for (let a = 0; a < slide.length; a++) {
+                slide[a].style.display = "none";
+                dot[a].style.background = "gray";
+            }
+            slide[num].style.display = "block";
+            dot[num].style.background = "white";
+        }
+        // Auto-slide every 2 seconds
+        window.onload = setInterval(function () {
+            n++;
+            slideshow(n);
+            // slideshow(++n);
+        }, 2000); // Change slides every 2 seconds
+
+        //View less/more 
+        function toggleContent() {
+            var extraContent = document.querySelector("#extra-content");
+            var p = document.querySelector("#lesstext1");
+
+            if (extraContent.style.display === "block") {
+                extraContent.style.display = "none";
+                p.innerText = 'View More';
+            } else {
+                extraContent.style.display = "block";
+                p.innerText = 'View Less';
+            }
+        }
+        //view less/more
+        function toggleContent2() {
+            var extracontent2 = document.querySelector("#extracontent2");
+            var divhide = document.querySelector("#Container2");
+            var p2 = document.querySelector("#lesstext");
+
+            if (extracontent2.style.display === "none") {
+                extracontent2.style.display = "block";
+                divhide.style.height = "auto";
+                p2.innerText = 'View Less';
+            } else {
+                extracontent2.style.display = "none";
+                divhide.style.height = "auto";
+                p2.innerText = 'View More';
+            }
+        }
+        //paratexthide
+        function paratext() {
+            var text = document.getElementById("extratext");
+            var arrow = document.querySelector("#Arrowimg1");
+
+            if (text.style.display === "none" || text.style.display === "") {
+                text.style.display = "block";
+            } else {
+                text.style.display = "none";
+            }
+        }
+        function paratext1() {
+            var text = document.getElementById("extratext1");
+            var arrow = document.querySelector("#Arrowimg1");
+
+            if (text.style.display === "none" || text.style.display === "") {
+                text.style.display = "block";
+            } else {
+                text.style.display = "none";
+            }
+        }
+        function paratext2() {
+            var text = document.getElementById("extratext2");
+            var arrow = document.querySelector("#Arrowimg1");
+
+            if (text.style.display === "none" || text.style.display === "") {
+                text.style.display = "block";
+            } else {
+                text.style.display = "none";
+            }
+        }
+        function paratext3() {
+            var text = document.getElementById("extratext3");
+            var arrow = document.querySelector("#Arrowimg1");
+
+            if (text.style.display === "none" || text.style.display === "") {
+                text.style.display = "block";
+            } else {
+                text.style.display = "none";
+            }
+        }
+        function paratext4() {
+            var text = document.getElementById("extratext4");
+            var arrow = document.querySelector("#Arrowimg1");
+            var container = document.getElementById("Container2");
+
+            if (text.style.display === "none" || text.style.display === "") {
+                text.style.display = "block";
+                container.style.height = "auto"; // Expand container height dynamically
+                arrow.style.transform = "rotate(180deg)";
+            } else {
+                text.style.display = "none";
+                arrow.style.transform = "rotate(0deg)";
+                container.style.height = "auto"; // Collapse space
+            }
+        }
+        //View less/more 
+        function toggleContent3() {
+            var extraContent3 = document.querySelector("#extracontent3");
+            var p3 = document.querySelector("#lesstext3");
+            var con = document.getElementById("Container3")
+
+            if (extraContent3.style.display === "block") {
+                extraContent3.style.display = "none";
+                con.style.height = "auto";
+                p3.innerText = 'View More';
+            } else {
+                extraContent3.style.display = "block";
+                con.style.height = "auto";
+                p3.innerText = 'View Less';
+            }
+        }
+        //footer list 
+        function one() {
+            var extra = document.querySelector(".extra");
+            var p4 = document.querySelector("#fontless");
+            var space = document.querySelector(".menu");
+
+            if (extra.style.display === "block") {
+                extra.style.display = "none";
+                space.style.height = "auto";
+                p4.innerText = "View More";
+            } else {
+                extra.style.display = "block";
+                space.style.height = "auto";
+                p4.innerText = "View Less";
+            }
+        }
+        function two() {
+            var extra = document.querySelector(".extra2");
+            var p4 = document.querySelector("#fontless2");
+            var space = document.querySelector(".menu");
+
+            if (extra.style.display === "block") {
+                extra.style.display = "none";
+                space.style.height = "auto";
+                p4.innerText = "View More";
+            } else {
+                extra.style.display = "block";
+                space.style.height = "auto";
+                p4.innerText = "View Less";
+            }
+        }
+        function three() {
+            var extra = document.querySelector(".extra3");
+            var p4 = document.querySelector("#fontless3");
+            var space = document.querySelector(".menu");
+
+            if (extra.style.display === "block") {
+                extra.style.display = "none";
+                space.style.height = "auto";
+                p4.innerText = "View More";
+            } else {
+                extra.style.display = "block";
+                space.style.height = "auto";
+                p4.innerText = "View Less";
+            }
+        }
+        function four() {
+            var extra = document.querySelector(".extra4");
+            var p4 = document.querySelector("#fontless4");
+            var space = document.querySelector(".menu");
+
+            if (extra.style.display === "block") {
+                extra.style.display = "none";
+                space.style.height = "auto";
+                p4.innerText = "View More";
+            } else {
+                extra.style.display = "block";
+                space.style.height = "auto";
+                p4.innerText = "View Less";
+            }
+        }
+        function five() {
+            var extra = document.querySelector(".extra5");
+            var p4 = document.querySelector("#fontless5");
+            var space = document.querySelector(".menu");
+
+            if (extra.style.display === "block") {
+                extra.style.display = "none";
+                space.style.height = "auto";
+                p4.innerText = "View More";
+            } else {
+                extra.style.display = "block";
+                space.style.height = "auto";
+                p4.innerText = "View Less";
+            }
+        }
+        function six() {
+            var extra = document.querySelector(".extra6");
+            var p4 = document.querySelector("#fontless6");
+            var space = document.querySelector(".menu");
+
+            if (extra.style.display === "block") {
+                extra.style.display = "none";
+                space.style.height = "auto";
+                p4.innerText = "View More";
+            } else {
+                extra.style.display = "block";
+                space.style.height = "auto";
+                p4.innerText = "View Less";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

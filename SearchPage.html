@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon.in//Search_Page</title>
+    <link rel="icon" type="image/x-icon" href="Favicon.png">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        #head {
+            background-color: #242926;
+            height: 70px;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        #Amalogo {
+            display: flex;
+            align-items: center;
+        }
+
+        #Amalogo img {
+            margin-left: 30px;
+            height: 70px;
+            width: 100px;
+            cursor: pointer;
+        }
+
+        .vertical-line {
+            width: 1px;
+            height: 30px;
+            background-color: white;
+            margin-left: 5px;
+        }
+
+        #List {
+            height: 60px;
+            width: auto;
+            margin-left: 55px;
+            margin-top: 50px;
+        }
+
+        #List li:hover,
+        #List li:active {
+            color: steelblue;
+        }
+
+        #List ul {
+            list-style-type: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            color: white;
+            gap: 35px;
+            cursor: pointer;
+        }
+
+        #Mxlogo {
+            height: 70px;
+            width: 200px;
+            cursor: pointer;
+            margin-left: 0;
+        }
+
+        #Icon_logo {
+            display: flex;
+            gap: 1px;
+            cursor: pointer;
+            margin-left: 160px;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .Allicons {
+            max-width: 30px;
+            max-height: 30px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .Allicons:hover {
+            transform: scale(1.2);
+            /* % zoom effect */
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 130px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 7px;
+            top: 110%;
+            position: absolute;
+            z-index: 2;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+
+        .toolsetting .toolsettingtext {
+            visibility: hidden;
+            width: 150px;
+            background-color: black;
+            color: white;
+            text-align: right;
+            font-size: 14px;
+            text-align: center;
+            border-radius: 5px;
+            padding: 7px;
+            left: 89%;
+            top: 110%;
+            position: absolute;
+            z-index: 2;
+        }
+
+        .toolsetting:hover .toolsettingtext {
+            visibility: visible;
+        }
+
+        #inputtext {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        #inputtext input {
+            height: 40px;
+            width: 350px;
+            padding-left: 45px;
+            border: 1px solid white;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-top: 6%;
+            margin-left: 65%;
+            background-color: black;
+            color: white;
+        }
+
+        /*#inputtext input:hover {
+            border: 2px solid white;
+        }*/
+
+        #inputtext img {
+            position: absolute;
+            left: 1000px;
+            top: 84%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+
+        /*Search box line */
+        #myinput:hover::after {
+            content: "|";
+            animation: blink 0.8s infinite;
+            color: white;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /*.clear-btn {
+            position: absolute;
+            right: 10px;
+            top: 100%;
+            left: 20px;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            color: white;
+            display: none;
+        }
+
+        #myinput:focus+.clear-btn {
+            display: block;
+        }
+
+        #myinput:not(:placeholder-shown)+.clear-btn {
+            display: block;
+        } */
+
+        .Series_Titles {
+            margin-left: 60px;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        #series_1 {
+            margin-left: 55px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .seriesimg {
+            height: 150px;
+            width: 270px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.4s ease-in-out;
+            /* Smooth transition effect */
+        }
+
+        .seriesimg:hover {
+            transform: scale(1.1);
+            /* % zoom effect */
+        }
+    </style>
+</head>
+
+<body bgcolor="#000000">
+    <div id="head">
+        <header id="Amalogo">
+            <a href="HomePage.html"><img src="Amazon.png" alt="Amazon logo"></a>
+            <div class="vertical-line"></div>
+            <a href="HomePage.html"><img src="Mx player logo.png" alt="Mxplayerlogo" id="Mxlogo"></a>
+            <div id="List">
+                <ul>
+                    <a href="index.html" style="text-decoration: none; color:white;">
+                        <li>Home</li>
+                    </a>
+                    <a href="New_Hot.html" style="text-decoration: none; color:white;">
+                        <li>New & Hot</li>
+                    </a>
+                    <a href="WebSeries.html" style="text-decoration: none; color:white;">
+                        <li>Web Series</li>
+                    </a>
+                    <a href="Movies.html" style="text-decoration: none; color:white;">
+                        <li>Movies</li>
+                    </a>
+                    <a href="VDesi.html" style="text-decoration: none; color:white;">
+                        <li>VDesi</li>
+                    </a>
+                    <a href="Romance.html" style="text-decoration: none; color:white;">
+                        <li>Romance</li>
+                    </a>
+                    <a href="Comedy.html" style="text-decoration: none; color:white;">
+                        <li>Comedy</li>
+                    </a>
+                    <a href="Tamil.html" style="text-decoration: none; color:white;">
+                        <li>Tamil</li>
+                    </a>
+                    <a href="Telugu.html" style="text-decoration: none; color:white;">
+                        <li>Telugu</li>
+                    </a>
+                </ul>
+            </div>
+            <div id="Icon_logo">
+                <a href="SearchPage.html"><img
+                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMCAwaDI0djI0SDB6Ii8+PGcgc3Ryb2tlPSIjRkZGIiBzdHJva2Utd2lkdGg9IjIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQgNCkiPjxjaXJjbGUgY3g9IjYuNSIgY3k9IjYuNSIgcj0iNi41Ii8+PHBhdGggZD0ibTExIDExIDUgNSIvPjwvZz48L2c+PC9zdmc+Cg=="
+                        alt="search_icon" class="Allicons"></a>
+                <div class="tooltip"><a
+                        href="https://www.amazon.in/?&tag=googhydrabk1-21&ref=pd_sl_5szpgfto9i_e&adgrpid=155259813593&hvpone=&hvptwo=&hvadid=674893540034&hvpos=&hvnetw=g&hvrand=4803792196428292479&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9151076&hvtargid=kwd-64107830&hydadcr=14452_2316413&gad_source=1"><img
+                            src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTIwLjIxNSAxOC44M2EuNTAzLjUwMyAwIDAgMC0uMzAyLjAzM2MtMS41NjQuNzE2LTMuMDg1IDEuMjI3LTQuNTYzIDEuNTI5LTMuMTkxLjY1LTYuMzAyLjMxLTkuMzI4LTEuMDE4LS44NC0uMzcxLTIuMDA5LS45OTYtMy41MDQtMS44OGEuMjM4LjIzOCAwIDAgMC0uMTM1LS4wNS4yNjEuMjYxIDAgMCAwLS4xMzQuMDIzLjI0LjI0IDAgMCAwLS4wOTQuMDc5Yy0uMDIzLjAzMy0uMDI4LjA3OC0uMDEuMTM3LjAxNS4wNTYuMDUzLjEyLjExNi4xODguMjY0LjMxLjU5Mi42NC45OC45OS4zODkuMzUuOTA0Ljc0NiAxLjU0NyAxLjE4OEExNS45NyAxNS45NyAwIDAgMCA2LjggMjEuMjI3Yy43LjM0MyAxLjUxMy42MzMgMi40NC44NjYuOTI3LjIzNCAxLjg1NC4zNSAyLjc3OC4zNS45MTkgMCAxLjgxMy0uMDk0IDIuNjc5LS4yNzYuODY4LS4xODYgMS42LS40MDQgMi4xOTYtLjY1OGExMi43ODIgMTIuNzgyIDAgMCAwIDEuNjQ1LS44MzhjLjUwMy0uMzA1Ljg3NC0uNTYzIDEuMTE1LS43Ny4yNDEtLjIwNy40MTQtLjM3LjUxMy0uNDkyLjExNi0uMTQ0LjE3NS0uMjY5LjE3NS0uMzc4LjAwMy0uMTE0LS4wNDMtLjE4LS4xMjctLjJaTTEyLjY1OSA4LjE0NmMtLjM4Ni4wMzMtLjg1LjEwNC0xLjM5Ny4yMS0uNTQ2LjEwNS0xLjA1LjIzNy0xLjUxOC4zOTJhOC4wOSA4LjA5IDAgMCAwLTEuNDMuNjQ1Yy0uNDg3LjI3NC0uOTAxLjU4OS0xLjI0NC45NC0uMzQzLjM1LS42MjIuNzg5LS44NCAxLjMyYTQuNTIzIDQuNTIzIDAgMCAwLS4zMjggMS43NDRjMCAuNjg4LjEyIDEuMy4zNjMgMS44NC4yNDIuNTQxLjU2NC45NjUuOTcgMS4yOC40MDQuMzE1Ljg2NC41NjEgMS4zNzEuNzQyYTQuMjUgNC4yNSAwIDAgMCAxLjYwNS4yMzggNi45MzMgNi45MzMgMCAwIDAgMS42MzUtLjI2MSA0Ljg1NiA0Ljg1NiAwIDAgMCAxLjQ4OC0uNzE5Yy40NjItLjMyNy44NC0uNzE2IDEuMTM4LTEuMTYuMTA5LjE2OC4yMDUuMjkyLjI5Mi4zNzNsLjIyLjIyNmMuMTQ4LjE1LjM3NC4zNy42NzguNjYzLjMwMy4yOTIuNjEyLjU3Ni45MjIuODU1bDIuNjUtMi41MzYtLjE1MS0uMTI0YTMuMTU3IDMuMTU3IDAgMCAxLS4zODYtLjM2NCA2LjU2NyA2LjU2NyAwIDAgMS0uNDM3LS41MiAyLjkyNSAyLjkyNSAwIDAgMS0uMzczLS42NTggMS44NzMgMS44NzMgMCAwIDEtLjE1OC0uNzIzVjUuODc2YzAtLjI1Ni0uMDQ4LS41MzMtLjE0NS0uODMzYTMuNjY5IDMuNjY5IDAgMCAwLS41MjUtLjk3MiA0LjI1MSA0LjI1MSAwIDAgMC0uOTQ1LS45NGMtLjM3OC0uMjc0LS44OC0uNTA3LTEuNTEzLS42OTUtLjYzLS4xODgtMS4zMzUtLjI4Mi0yLjExMi0uMjgyYTguNjUgOC42NSAwIDAgMC0yLjIyNS4yNzdjLS42ODguMTg1LTEuMjc3LjQzMS0xLjc3Ljc0MS0uNDkuMzEtLjkxLjY2OC0xLjI2MSAxLjA3Ny0uMzUuNDA4LS42MTIuODM1LS43ODIgMS4yOC0uMTcuNDQ0LS4yNTcuODkzLS4yNTcgMS4zNDdsMy40MzMuMzAzYy4xNC0uNDE3LjMyOC0uNzc3LjU1OS0xLjA4Ny4yMzMtLjMxLjQ1NC0uNTMzLjY1NS0uNjczLjIwMy0uMTQuNDIxLS4yNTEuNjUyLS4zMzUuMjM0LS4wODQuMzkxLS4xMjcuNDczLS4xMzcuMDgtLjAwOC4xNDQtLjAxLjE5My0uMDEuNjc3IDAgMS4xNDcuMiAxLjQxMS41OTkuMTY1LjI0MS4yNDYuNjA3LjI0NiAxLjF2MS40MzZjLS4zODUuMDE2LS43NzEuMDQxLTEuMTU3LjA3NFptMS4xNiAzLjg1N2MwIC40MjEtLjA1Ni44MDUtLjE2NSAxLjE0Mi0uMjMzLjc0LS42NzggMS4yMDQtMS4zMyAxLjM5Mi0uNTcuMTY3LTEuMTEuMDg0LTEuNjIzLS4yNDktLjU0Ni0uMzU2LS44MTctLjg1OC0uODE3LTEuNTA2IDAtLjUwNS4xMjctLjkzNy4zOC0xLjI5N2EyLjMxMyAyLjMxMyAwIDAgMSAxLjAxNi0uODA1IDUuOTc2IDUuOTc2IDAgMCAxIDEuMjQ0LS4zNzggOC41MzQgOC41MzQgMCAwIDEgMS4yOTUtLjEzN3YxLjgzOFptOC41MTEgNS41NThjLS4xMS0uMTM3LS40MDQtLjIyNi0uODg2LS4yNzJhNS4zMDEgNS4zMDEgMCAwIDAtMS4yNjIuMDFjLS4zODguMDQ2LS43OS4xNTgtMS4yMDEuMzQtLjQxNC4xOC0uNTk0LjMzMy0uNTQ4LjQ1M2wuMDE3LjAzMy4wMjMuMDE3LjAzNi4wMDVoLjExNmMuMDIgMCAuMDQ2LS4wMDIuMDgyLS4wMDUuMDM1LS4wMDIuMDY4LS4wMDcuMDk5LS4wMS4wMy0uMDAyLjA3My0uMDA4LjEzLS4wMWExLjQxIDEuNDEgMCAwIDAgLjE1Mi0uMDE4Yy4wMDcgMCAuMDk0LS4wMDcuMjYxLS4wMjMuMTY4LS4wMTUuMjktLjAyNS4zNjMtLjAzMy4wNzQtLjAwNy4xOTgtLjAxNS4zNjgtLjAyMmEzLjYxIDMuNjEgMCAwIDEgLjQxIDBsLjM0NS4wMjdjLjEyOS4wMS4yMzMuMDMzLjMxNC4wNjlhLjM5OS4zOTkgMCAwIDEgLjE4LjEzYy4xMzMuMTY3LjEwNy41MzgtLjA3NiAxLjExNGExMS4xMDIgMTEuMTAyIDAgMCAxLS41MTggMS4zNzZjLS4wNy4xNDUtLjA3LjIzNCAwIC4yNzIuMDcyLjAzOC4xNy4wMDMuMzAzLS4xMDIuMzk2LS4zMS43MjYtLjc3Ny45OTItMS40MDQuMTU1LS4zNy4yNjctLjc1Ni4zMzMtMS4xNi4wNjEtLjQwNC4wNS0uNjY1LS4wMzMtLjc4N1oiIGZpbGw9IiNGRjhGMDAiLz48L3N2Zz4="
+                            alt="amazon_icon" class="Allicons"></a>
+                    <p class="tooltiptext">Go to Amazon</p>
+                </div>
+
+                <div class="toolsetting"><img
+                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTkuOTc0IDUuODJjMC0xLjAwNy44MS0xLjgyIDEuODAxLTEuODJoMS40NWExLjgxIDEuODEgMCAwIDEgMS44MDEgMS44MnYuNDk4Yy4zOTUuMTcuNzcxLjM4MiAxLjEyMy42MzJsLjQyNS0uMjQ2YTEuNzk1IDEuNzk1IDAgMCAxIDIuNDU3LjY2MmwuNzI1IDEuMjZhMS44MjYgMS44MjYgMCAwIDEtLjY2MyAyLjQ5bC0uMzc3LjIyYTYuMjggNi4yOCAwIDAgMSAwIDEuMzI5bC4zNzcuMjE4YTEuODI4IDEuODI4IDAgMCAxIC42NjMgMi40OTFsLS43MjUgMS4yNmExLjc5NCAxLjc5NCAwIDAgMS0yLjQ1Ny42NjJsLS40MjUtLjI0NmMtLjM1Mi4yNS0uNzI4LjQ2Mi0xLjEyMy42MzJ2LjQ5N2MwIDEuMDA4LS44MSAxLjgyMS0xLjgwMSAxLjgyMWgtMS40NWExLjgxIDEuODEgMCAwIDEtMS44MDEtMS44MnYtLjU4OWE2LjE0MiA2LjE0MiAwIDAgMS0xLjAxMS0uNjA2bC0uNTM3LjMxMWExLjc5NSAxLjc5NSAwIDAgMS0yLjQ1Ny0uNjYybC0uNzI1LTEuMjZhMS44MjggMS44MjggMCAwIDEgLjY2My0yLjQ5bC41NjgtLjMzYTYuMjg0IDYuMjg0IDAgMCAxIDAtMS4xMDlsLS41NjgtLjMyOGExLjgyOCAxLjgyOCAwIDAgMS0uNjYzLTIuNDkxbC43MjUtMS4yNmExLjc5NCAxLjc5NCAwIDAgMSAyLjQ1Ny0uNjYybC41MzcuMzFhNi4xNDIgNi4xNDIgMCAwIDEgMS4wMS0uNjA1VjUuODJ6bTEuNDI4IDEuMDczYS43MjcuNzI3IDAgMCAxLS40NjYuNjgyIDQuNzE4IDQuNzE4IDAgMCAwLTEuNDQzLjg2NS43MDQuNzA0IDAgMCAxLS44MTkuMDgxbC0uOTU1LS41NTNhLjM4LjM4IDAgMCAwLS41MTguMTMzbC0uNzI0IDEuMjZhLjM1OS4zNTkgMCAwIDAgLjEzNi40OTJsLjk4Ni41N2EuNzMyLjczMiAwIDAgMSAuMzUuNzYgNC43NjggNC43NjggMCAwIDAgMCAxLjYzNC43MzIuNzMyIDAgMCAxLS4zNS43NmwtLjk4Ni41N2EuMzU5LjM1OSAwIDAgMC0uMTM2LjQ5MmwuNzI1IDEuMjZhLjM4LjM4IDAgMCAwIC41MTcuMTMzbC45NTUtLjU1M2EuNzA0LjcwNCAwIDAgMSAuODIuMDhjLjQyNi4zNzQuOTE1LjY2NyAxLjQ0Mi44NjYuMjguMTA2LjQ2Ni4zNzguNDY2LjY4MnYxLjA3MmMwIC4yMDEuMTY0LjM2Ni4zNzMuMzY2aDEuNDVhLjM3MS4zNzEgMCAwIDAgLjM3My0uMzY2di0xYzAtLjMxNS4xOTktLjU5NC40OTMtLjY5MWE0LjcxMSA0LjcxMSAwIDAgMCAxLjU0Ni0uODY4LjcwNC43MDQgMCAwIDEgLjgwOS0uMDcybC44MzUuNDg0YS4zOC4zOCAwIDAgMCAuNTE4LS4xMzNsLjcyNC0xLjI2YS4zNTkuMzU5IDAgMCAwLS4xMzYtLjQ5MmwtLjgwNC0uNDY1YS43MzIuNzMyIDAgMCAxLS4zNDctLjc3NCA0Ljc3IDQuNzcgMCAwIDAgMC0xLjgxNi43MzIuNzMyIDAgMCAxIC4zNDctLjc3NGwuODA0LS40NjVhLjM1OS4zNTkgMCAwIDAgLjEzNi0uNDkybC0uNzI1LTEuMjZhLjM4LjM4IDAgMCAwLS41MTctLjEzM2wtLjgzNS40ODNhLjcwNC43MDQgMCAwIDEtLjgwOS0uMDcxIDQuNzExIDQuNzExIDAgMCAwLTEuNTQ3LS44NjcuNzI2LjcyNiAwIDAgMS0uNDkyLS42OTJ2LTFhLjM2OS4zNjkgMCAwIDAtLjM3My0uMzY2aC0xLjQ1YS4zNzEuMzcxIDAgMCAwLS4zNzMuMzY2djEuMDcyem0xLjA5OCA3LjY1MmMtMS4zOCAwLTIuNS0xLjE0LTIuNS0yLjU0NSAwLTEuNDA2IDEuMTItMi41NDUgMi41LTIuNTQ1UzE1IDEwLjU5NSAxNSAxMmMwIDEuNDA2LTEuMTIgMi41NDUtMi41IDIuNTQ1em0wLTEuNDU0Yy41OTIgMCAxLjA3MS0uNDg5IDEuMDcxLTEuMDkxcy0uNDgtMS4wOS0xLjA3MS0xLjA5QTEuMDggMS4wOCAwIDAgMCAxMS40MjkgMTJjMCAuNjAyLjQ4IDEuMDkgMS4wNzEgMS4wOXoiIGZpbGw9IiNGRkYiLz48L3N2Zz4="
+                        alt="setting_icon" class="Allicons">
+                    <p class="toolsettingtext">Parental Control<br>Delete Your miniTv Data</p>
+                </div>
+            </div>
+        </header>
+    </div>
+    <div id="inputtext">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMCAwaDI0djI0SDB6Ii8+PGcgc3Ryb2tlPSIjRkZGIiBzdHJva2Utd2lkdGg9IjIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQgNCkiPjxjaXJjbGUgY3g9IjYuNSIgY3k9IjYuNSIgcj0iNi41Ii8+PHBhdGggZD0ibTExIDExIDUgNSIvPjwvZz48L2c+PC9zdmc+Cg=="
+            alt="search_icon" id="myinput">
+        <input type="text" placeholder="Shows, generes, movies and more">
+        <!-- <button class="clear-btn" id="clearBtn" onclick="clearSearch()">×</button> -->
+    </div>
+    <div id="MostSearchSeries">
+        <h3 style="color:white; margin-left:50px;" class="Series_Titles">Most Searched on miniTV</h3>
+        <div id="series_1">
+            <img src="A1.jpeg" alt="A1" class="seriesimg">
+            <img src="A2.jpg" alt="A2" class="seriesimg">
+            <img src="A3.jpg" alt="A3" class="seriesimg">
+            <img src="A4.jpg" alt="A4" class="seriesimg">
+            <img src="A5.jpeg" alt="A5" class="seriesimg">
+        </div>
+        <br>
+        <div id="series_1">
+            <img src="A6.jpg" alt="A6" class="seriesimg">
+            <img src="A7.jpg" alt="A7" class="seriesimg">
+            <img src="A8.jpg" alt="A8" class="seriesimg">
+            <img src="A9.jpg" alt="A9" class="seriesimg">
+            <img src="A10.jpg" alt="A10" class="seriesimg">
+        </div>
+        <br>
+        <div id="series_1">
+            <img src="A11.jpg" alt="A11" class="seriesimg">
+            <img src="A12.jpg" alt="A12" class="seriesimg">
+            <img src="A13.jpg" alt="A13" class="seriesimg">
+            <img src="A14.jpg" alt="A14" class="seriesimg">
+            <img src="A15.jpg" alt="A15" class="seriesimg">
+        </div>
+        <div id="series_1">
+            <img src="A16.jpg" alt="A16" class="seriesimg">
+            <img src="A17.jpeg" alt="A17" class="seriesimg">
+            <img src="A18.jpg" alt="A18" class="seriesimg">
+            <img src="A19.jpg" alt="A19" class="seriesimg">
+            <img src="A20.jpg" alt="A20" class="seriesimg">
+        </div>
+    </div>
+    <!-- Search box line in js -->
+    <script>
+        let input = document.getElementById("myinput");
+
+        input.addEventListener("mouseenter", () => {
+            input.focus();
+        });
+
+        input.addEventListener("mouseleave", () => {
+            input.blur();
+        });
+
+        // Clear the search field when the '×' button is clicked
+        /*function clearSearch() {
+            document.getElementById('myinput').value = '';
+            document.getElementById('myinput').focus();
+        }
+
+        // Show the clear button when the user types in the input
+        document.getElementById('myinput').addEventListener('input', function () {
+            const clearBtn = document.getElementById('clearBtn');
+            if (this.value.length > 0) {
+                clearBtn.style.display = 'block';
+            } else {
+                clearBtn.style.display = 'none';
+            }
+        });*/
+    </script>
+
+</body>
+
+</html>
